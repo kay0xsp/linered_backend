@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\bucket_product;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class BucketProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,21 +35,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $post = Category::create($request->all());
-        return response()->json([
-            'status' => 'true',
-            'message' => 'category added succesfully',
-            'category' => $post
-        ], 200);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\bucket_product  $bucket_product
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(bucket_product $bucket_product)
     {
         //
     }
@@ -57,10 +52,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\bucket_product  $bucket_product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(bucket_product $bucket_product)
     {
         //
     }
@@ -69,10 +64,10 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\bucket_product  $bucket_product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, bucket_product $bucket_product)
     {
         //
     }
@@ -80,10 +75,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\bucket_product  $bucket_product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(bucket_product $bucket_product)
     {
         //
     }

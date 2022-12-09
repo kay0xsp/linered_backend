@@ -17,10 +17,20 @@ class ProductsController extends Controller
     {
         $products = Product::get();
 
-        return response()->json([
-            'status' => true,
-            'products' => $products
-        ]);
+        if($products->isEmpty())
+        {
+            return response()->json([
+                'status' => 'empty'
+            ], 400);
+        }
+        else
+        {
+            return response()->json([
+                'status' => 'succes',
+                'products' => $products
+            ], 200);
+        }
+        
     }
 
     /**
