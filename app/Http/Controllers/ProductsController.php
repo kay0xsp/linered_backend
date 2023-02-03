@@ -57,18 +57,7 @@ class ProductsController extends Controller
             'message' => 'Product added succesfully',
             'product' => $post
         ], 200);
-        /*
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            "description" => "required|max:255",
-            "serialNumber" => "required|max:255",
-            "imagePath" => "required|max:255"
-        ]);
- 
-        $request->user()->products()->create($validated);
- 
-        return redirect(route('products.index'));
-        */
+
     }
 
     /**
@@ -79,7 +68,7 @@ class ProductsController extends Controller
      */
     public function show(Product $products)
     {
-       // return 'MOO';
+       // 
     }
 
     /**

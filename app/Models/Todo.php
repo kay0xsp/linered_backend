@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Todo extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['title','description','serialNumber','imagePath','price','category_id'];
+    protected $fillable = ['title', 'description'];
 }
