@@ -35,12 +35,28 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $post = Category::create($request->all());
-        return response()->json([
-            'status' => 'true',
-            'message' => 'category added succesfully',
-            'category' => $post
-        ], 200);
+        if(count($request->all()))
+        {
+            $post = Category::insert($request->all());
+        
+            $request->validate([
+                '.*categoryName' => 'required|max:255'
+            ]);
+            
+            return response()->json([
+                'status' => 'true',
+                'message' => 'categories added succesfully',
+                'product' => $post
+            ], 200);
+
+        }
+        else
+        {          
+            return response()->json([
+                'status' => 'empty',
+                'message' => 'categories are empty',
+            ], 400);
+        }
     }
 
     /**

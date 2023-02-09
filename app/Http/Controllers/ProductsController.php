@@ -51,12 +51,33 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $post = Product::create($request->all());
-        return response()->json([
-            'status' => 'true',
-            'message' => 'Product added succesfully',
-            'product' => $post
-        ], 200);
+        if(count($request->all()))
+        {
+            $post = Product::insert($request->all());
+        
+            $request->validate([
+                '.*title' => 'required|max:255',
+                '.*description' => 'required',
+                '.*price' => 'required|float',
+                '.*serialNumber' => 'required|integer',
+                '.*imagePath' => 'required',
+                '.*category_id' => 'required'
+            ]);
+            
+            return response()->json([
+                'status' => 'true',
+                'message' => 'Products added succesfully',
+                'product' => $post
+            ], 200);
+
+        }
+        else
+        {          
+            return response()->json([
+                'status' => 'empty',
+                'message' => 'products are empty',
+            ], 400);
+        }
 
     }
 
